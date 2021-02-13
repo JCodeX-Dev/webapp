@@ -1,4 +1,4 @@
-package dev.jcodex.webapp;
+package dev.jcodex.webapp.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
