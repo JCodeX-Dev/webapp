@@ -18,12 +18,12 @@ public class WebAppController {
     private UserService userService;
 
     @GetMapping("/profile")
-    public Profile getProfile(){
+    public Profile getProfile() {
         return profileService.getProfile();
     }
 
     @GetMapping("/api/user/{id}")
-    public void getUser(@Param("id") int id){
+    public void getUser(@Param("id") int id) {
 
         userService.getUser(id);
     }
