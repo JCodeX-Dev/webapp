@@ -24,6 +24,7 @@ public class WebAppController {
 
     @GetMapping("/api/user/{id}")
     public void getUser(@Param("id") int id){
-        getUser;
+
+        userService.getUser(id);
     }
 }
