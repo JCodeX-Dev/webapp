@@ -12,7 +12,10 @@ public class ProfileService {
     ProfileRepo repo;
 
     public Profile getProfile() {
-        return repo.getOne(1);
-        //TODO will change later
+//        Profile profile = repo.getOne(1);
+//        System.out.println(profile);
+        return repo.findById(1)
+                .get();
+        //TODO will change later and add .orElse(error page)
     }
 }
