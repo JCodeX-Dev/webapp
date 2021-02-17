@@ -1,6 +1,6 @@
 package dev.jcodex.webapp.service;
 
-import dev.jcodex.webapp.repository.UserRepo;
+import dev.jcodex.webapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    private UserRepo repo;
+    private UserRepository repo;
 
     public void getUser(int id) {
         repo.getOne(id);

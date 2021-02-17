@@ -1,7 +1,7 @@
 package dev.jcodex.webapp.service;
 
 import dev.jcodex.webapp.model.Profile;
-import dev.jcodex.webapp.repository.ProfileRepo;
+import dev.jcodex.webapp.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class ProfileService {
 
     @Autowired
-    ProfileRepo repo;
+    ProfileRepository repo;
 
     public Profile getProfile() {
 //        Profile profile = repo.getOne(1);

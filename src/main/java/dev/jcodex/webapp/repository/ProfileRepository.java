@@ -2,8 +2,8 @@ package dev.jcodex.webapp.repository;
 
 import dev.jcodex.webapp.model.Profile;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
-public interface ProfileRepo extends JpaRepository<Profile, Integer> {
+@Repository
+public interface ProfileRepository extends JpaRepository<Profile, Integer> {
 }
