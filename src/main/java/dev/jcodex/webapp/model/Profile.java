@@ -11,11 +11,14 @@ public class Profile {
     @Column(name = "profileID")
     private int id;
 
-    private String first_name;
+    @Column(name = "first_name")
+    private String firstName;
 
-    private String last_name;
+    @Column(name = "last_name")
+    private String lastName;
 
-    private String twitter_uname;
+    @Column(name = "twitter_uname")
+    private String twitterUname;
 
     private String email;
 
@@ -37,28 +40,28 @@ public class Profile {
         this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstNname(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getTwitter_uname() {
-        return twitter_uname;
+    public String getTwitterUname() {
+        return twitterUname;
     }
 
-    public void setTwitter_uname(String twitter_uname) {
-        this.twitter_uname = twitter_uname;
+    public void setTwitterUname(String twitterUname) {
+        this.twitterUname = twitterUname;
     }
 
     public String getEmail() {
