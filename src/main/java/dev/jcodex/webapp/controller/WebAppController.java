@@ -9,14 +9,9 @@ import dev.jcodex.webapp.service.FileService;
 import dev.jcodex.webapp.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -97,9 +92,9 @@ public class WebAppController {
     }
 
     @GetMapping("/{id}/qualifications")
-    public String getQualifications(@PathVariable int id) {
+    public Qualification getQualifications(@PathVariable int id) {
         System.out.println("qualifications");
-        return "{\"navLogo\": \"Jeremy\"}";
+        return profileService.getQualification(id);
     }
 
     @GetMapping("/{id}/projects")

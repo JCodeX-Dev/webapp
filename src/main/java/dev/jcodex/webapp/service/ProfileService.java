@@ -4,7 +4,6 @@ package dev.jcodex.webapp.service;
 import dev.jcodex.webapp.model.*;
 import dev.jcodex.webapp.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,10 +48,9 @@ public class ProfileService {
         return getProfile(user).getSkills();
     }
 
-//    public Qualification getQualification(int user) {
-//        ObjectId qualification_id = getProfile(user).getHeader();
-//        return template.findById(qualification_id, Qualification.class);
-//    }
+    public Qualification getQualification(int user) {
+        return getProfile(user).getQualifications();
+    }
 
     public List<Project> getProjects(int user) {
         return getProfile(user).getProjects();
