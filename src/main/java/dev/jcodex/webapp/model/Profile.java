@@ -4,13 +4,14 @@ package dev.jcodex.webapp.model;
 //import javax.persistence.Entity;
 //import javax.persistence.Id;
 
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
-//@Entity(name = "profiles")
+@Getter
 @Document(collection = "profiles")
 public final class Profile {
 
@@ -28,7 +29,7 @@ public final class Profile {
 
     private List<Skill> skills;
 
-//    private List<Qualification> qualifications;
+    private Qualification qualifications;
 
     private List<Project> projects;
 
@@ -37,41 +38,5 @@ public final class Profile {
     private Contact contact;
 
     private Footer footer;
-
-    public Header getHeader() {
-        return header;
-    }
-
-    public Home getHome() {
-        return home;
-    }
-
-    public About getAbout() {
-        return about;
-    }
-
-    public List<Skill> getSkills() {
-        return skills;
-    }
-
-//    public List<Qualification> getQualification() {
-//        return qualifications;
-//    }
-
-    public List<Project> getProjects() {
-        return projects;
-    }
-
-    public List<Blog> getBlogs() {
-        return blogs;
-    }
-
-    public Contact getContact() {
-        return contact;
-    }
-
-    public Footer getFooter() {
-        return footer;
-    }
 
 }

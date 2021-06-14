@@ -1,8 +1,10 @@
 package dev.jcodex.webapp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+@Getter
 public class Home {
 
     private String name;
@@ -15,31 +17,4 @@ public class Home {
     private String linkedin;
     private String github;
 
-    public String getName() {
-        return name;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public PFile getImage() {
-        return image;
-    }
-
-    public String getTwitter() {
-        return twitter;
-    }
-
-    public String getLinkedin() {
-        return linkedin;
-    }
-
-    public String getGithub() {
-        return github;
-    }
 }
