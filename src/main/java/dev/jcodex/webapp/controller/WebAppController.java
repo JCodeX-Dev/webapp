@@ -88,6 +88,7 @@ public class WebAppController {
 
     @GetMapping("/{id}/skills")
     public List<Skill> getSkills(@PathVariable int id) {
+        System.out.println("skils");
         return profileService.getSkills(id);
     }
 
