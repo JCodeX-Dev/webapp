@@ -14,4 +14,6 @@ public class Footer {
 
     private String stackoverflow;
 
+    private String instagram;
+
 }
