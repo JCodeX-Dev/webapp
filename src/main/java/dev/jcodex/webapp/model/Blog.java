@@ -1,5 +1,8 @@
 package dev.jcodex.webapp.model;
 
+import lombok.Getter;
+
+@Getter
 public class Blog {
 
     private String title;
@@ -8,15 +11,4 @@ public class Blog {
 
     private String url;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public String getUrl() {
-        return url;
-    }
 }

@@ -1,9 +1,11 @@
 package dev.jcodex.webapp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+@Getter
 public class About {
 
     private String description;
@@ -17,15 +19,4 @@ public class About {
     @JsonIgnore
     private PFile resume;
 
-    public String getDescription() {
-        return description;
-    }
-
-    public PFile getImage() {
-        return image;
-    }
-
-    public PFile getResume() {
-        return resume;
-    }
 }

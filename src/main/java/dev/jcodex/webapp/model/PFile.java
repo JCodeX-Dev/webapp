@@ -1,10 +1,12 @@
 package dev.jcodex.webapp.model;
 
+import lombok.Getter;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+@Getter
 @Document(collection = "fs.files")
 public class PFile {
 
@@ -16,19 +18,5 @@ public class PFile {
 
     @Field("metadata")
     private FileMeta meta;
-//    public InputStream stream;
-
-
-    public ObjectId getId() {
-        return id;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public FileMeta getMeta() {
-        return meta;
-    }
 }
 

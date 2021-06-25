@@ -1,19 +1,13 @@
 package dev.jcodex.webapp.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.Getter;
 
 import java.util.List;
 
+@Getter
 public class Skill {
     private String category;
 
     private List<String> technology;
 
-    public String getCategory() {
-        return category;
-    }
-
-    public List<String> getTechnology() {
-        return technology;
-    }
 }

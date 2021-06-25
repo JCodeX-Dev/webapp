@@ -1,5 +1,8 @@
 package dev.jcodex.webapp.model;
 
+import lombok.Getter;
+
+@Getter
 public class Footer {
     private String name;
 
@@ -11,23 +14,6 @@ public class Footer {
 
     private String stackoverflow;
 
-    public String getName() {
-        return name;
-    }
+    private String instagram;
 
-    public String getGithub() {
-        return github;
-    }
-
-    public String getLinkedin() {
-        return linkedin;
-    }
-
-    public String getTwitter() {
-        return twitter;
-    }
-
-    public String getStackoverflow() {
-        return stackoverflow;
-    }
 }

@@ -1,27 +1,22 @@
 package dev.jcodex.webapp.controller;
 
-//import dev.jcodex.webapp.model.Profile;
-//import dev.jcodex.webapp.service.ProfileService;
-//import dev.jcodex.webapp.service.UserService;
 
 import dev.jcodex.webapp.model.*;
 import dev.jcodex.webapp.service.FileService;
+import dev.jcodex.webapp.service.MailService;
 import dev.jcodex.webapp.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
+@Controller
 @RestController
 @RequestMapping("api/profile")
-//@CrossOrigin(origins = "http://localhost:4200")
 public class WebAppController {
     //todo create services
 
@@ -30,53 +25,24 @@ public class WebAppController {
 
     @Autowired
     private ProfileService profileService;
-//    @Autowired
-//    private UserService userService;
 
-//    @GetMapping("/profile")
-//    public Profile getProfile() {
-//        return profileService.getProfile();
-//    }
+    @Autowired
+    private MailService mailService;
 
-//    @GetMapping("/api/user/{id}")
-//    public void getUser(@RequestParam("id") int id) {
-//
-//        userService.getUser(id);
-//    }
-
-
-    //    @CrossOrigin(origins = "http://localhost:4200")
 //    @GetMapping("addfile")
 //    public String addFile() throws IOException {
-//        Path path = Paths.get("src/main/resources/static/profile.png");
+//        Path path = Paths.get("src/main/resources/static/Jeremy_s_Resume.pdf");
 //        String mimeType = path.toFile().toURL().openConnection().getContentType();
-//        MultipartFile multipartFile = new MockMultipartFile("profile.png", path.getFileName().toString(), mimeType, Files.readAllBytes(path));
+//        MultipartFile multipartFile = new MockMultipartFile("Jeremy's Resume.pdf", path.getFileName().toString(), mimeType, Files.readAllBytes(path));
 //
 //        System.out.println("running");
-//        return fileService.addFile("Profile Image", multipartFile);
-//    }
-
-//    @GetMapping("getfile/cv")
-//    public ResponseEntity<byte[]> getFile() throws IOException {
-//
-//        PFile file = fileService.getFile("60c1b20b6f29d14bbda969ed");
-//        String fileName = "Jeremy.pdf";
-//        System.out.println("file running");
-//        HttpHeaders head = new HttpHeaders();
-//        head.setContentType(MediaType.parseMediaType("application/pdf"));
-//        head.add("content-disposition", "attachment; filename=" + fileName);
-//        head.setContentDispositionFormData(fileName, fileName);
-//        head.setCacheControl("must-revalidate, post-check=0, pre-check=0");
-//        ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(file.stream.readAllBytes(), head, HttpStatus.OK);
-//        return responseEntity;
+//        return fileService.addFile("Resume", multipartFile);
 //    }
 
     @GetMapping("/{id}/header")
-//    @ResponseBody
     public Header getHeader(@PathVariable int id) {
         System.out.println("header");
         return profileService.getHeader(id);
-//        return "{\"navLogo\": \"Jeremy\"}";
     }
 
     @GetMapping("/{id}/home")
@@ -93,13 +59,14 @@ public class WebAppController {
 
     @GetMapping("/{id}/skills")
     public List<Skill> getSkills(@PathVariable int id) {
+        System.out.println("skils");
         return profileService.getSkills(id);
     }
 
     @GetMapping("/{id}/qualifications")
-    public String getQualifications(@PathVariable int id) {
+    public Qualification getQualifications(@PathVariable int id) {
         System.out.println("qualifications");
-        return "{\"navLogo\": \"Jeremy\"}";
+        return profileService.getQualification(id);
     }
 
     @GetMapping("/{id}/projects")
@@ -137,4 +104,11 @@ public class WebAppController {
         System.out.println("file");
         return profileService.getAboutFile(id, type);
     }
+
+    @PostMapping(value = "/{id}/contact/message")
+    public ResponseEntity<?> sendMessage(@PathVariable int id, @RequestBody Mail mail) {
+        System.out.println("mail");
+        return mailService.sendMessage(mail) ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 }

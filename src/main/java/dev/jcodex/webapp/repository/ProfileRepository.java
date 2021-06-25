@@ -1,7 +1,6 @@
 package dev.jcodex.webapp.repository;
 
 
-import dev.jcodex.webapp.model.Header;
 import dev.jcodex.webapp.model.Profile;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;

@@ -1,7 +1,23 @@
 package dev.jcodex.webapp.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.Getter;
 
-@Document
+import java.util.List;
+
+@Getter
 public class Qualification {
+
+    List<QType> education;
+
+    List<QType> work;
+}
+
+@Getter
+class QType {
+    private String title;
+
+    private String location;
+
+    private String duration;
+
 }

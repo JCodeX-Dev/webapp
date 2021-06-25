@@ -1,5 +1,8 @@
 package dev.jcodex.webapp.model;
 
+import lombok.Getter;
+
+@Getter
 public class Contact {
     private String email;
 
@@ -7,15 +10,4 @@ public class Contact {
 
     private String location;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getLocation() {
-        return location;
-    }
 }
