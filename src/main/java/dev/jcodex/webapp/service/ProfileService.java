@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
 
-////@Component
 @Service
 public class ProfileService {
 
@@ -21,12 +20,6 @@ public class ProfileService {
 
     @Autowired
     FileService fileService;
-//    @Autowired
-//    MongoTemplate template;
-
-//    public Optional<Profile> getProfile(ObjectId user) {
-//        return repo.findById(user);
-//    }
 
     public Profile getProfile(int user) {
         return repo.findByProfileId(user);
