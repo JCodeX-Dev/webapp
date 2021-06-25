@@ -28,7 +28,6 @@ public class FileService {
 
     public String addFile(String title, MultipartFile file) throws IOException {
         DBObject metaData = new BasicDBObject();
-//        metaData.put("type", "video");
         metaData.put("title", title);
         ObjectId id = gridFsTemplate.store(
                 file.getInputStream(), file.getName(), file.getContentType(), metaData);
